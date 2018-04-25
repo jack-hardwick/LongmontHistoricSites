@@ -1,0 +1,99 @@
+
+html, body, #map 
+{
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color:darkgreen;
+}
+
+#title
+{
+  color: white;  
+    height: 25px;
+}
+
+.floater 
+{
+  position: absolute;
+  z-index: 999;
+}
+
+
+#buttonContainer 
+{
+  bottom: 10px;
+  left: 10px;
+}
+
+button 
+{
+  margin: 0px;
+  padding: 8px;
+  width: 285px;
+  background-color: white;
+  border-radius: 6px;
+  font-size:14px;
+  font-weight:900;
+  border: 2px solid rgba(0,100,0,0.5);
+}
+
+button:hover 
+{
+  cursor:pointer;
+  background-color:darkgreen;
+  color:white;
+}
+
+.vertical-menu {
+    width: 300px;
+    height: 600px;
+    overflow-y: auto;
+}
+
+.card-vertical-menu {
+    width: 300px;
+    height: 600px;
+    overflow-y: auto;
+}
+
+.vertical-menu a {
+    background-color: #eee;
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+}
+
+.vertical-menu a:hover {
+    background-color: #ccc;
+}
+
+.vertical-menu a.active {
+    position: fixed;
+    bottom: 610px;
+    width: 275px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,1);
+    transition: 0.3s;
+    width: 400px;
+    height: 400px;
+    position: fixed;
+    right: 100px;
+    top: 300px;
+    
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+    padding: 2px 16px;
+    background-color: white;
+    color: black;
+}
