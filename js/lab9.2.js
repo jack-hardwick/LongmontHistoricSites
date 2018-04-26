@@ -8,10 +8,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }).addTo(map);  
     
     var list = document.getElementById("list");
-
+    var siteList = [];
+    
     L.esri.featureLayer({
         url: 'https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/latlong_Sites/FeatureServer/0',
-       
+        
+        
       
         onEachFeature: myOnEachFeature
         
@@ -33,22 +35,24 @@ document.addEventListener('DOMContentLoaded', function() {
     var li = document.createElement("li"),
         a = document.createElement("Button"),
         content = feature.properties.Name;
-
+        siteList.push({Name:feature.properties.Name, Location: feature.properties.Location, Date: feature.properties.Date, Year_Desig: feature.properties.Year_Desig, webpage: feature.properties.WEB, Lat: feature.properties.Lat, Long: feature.properties.Long})
+        
     // Create the "button".
     a.innerHTML = content;
     a.layer = layer; // Store a reference to the actual layer.
     a.onclick = function (event) {
         event.preventDefault(); // Prevent the link from scrolling the page.
         
-        map.setView(this.feature.properties.lat, this.feature.properties.long, 16);
-        //map.fitBounds(feature.getBounds());
-        console.log(feature.properties);
+        //map.flyToBounds(feature.geometry.coordinates);
+        map.fitBounds(feature.geometry.coordinates, 16);
+        //console.log(feature.properties);
         layer.openPopup();
     };
     li.appendChild(a);
     list.appendChild(li);
-
-    layer.bindPopup(content);
+    
+    console.log(siteList);
+    layer.bindPopup("Name: " + content + "Lat:" + feature.properties.Lat + " Long: " + feature.properties.Long);
 }
 
 /*    
