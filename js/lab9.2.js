@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var siteList = [];
     
     L.esri.featureLayer({
-        url: 'https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/latlong_Sites/FeatureServer/0',
+        url: 'https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/latlongsites/FeatureServer/0',
         
         
       
@@ -34,25 +34,40 @@ document.addEventListener('DOMContentLoaded', function() {
     function myOnEachFeature(feature, layer) {
     var li = document.createElement("li"),
         a = document.createElement("Button"),
-        content = feature.properties.Name;
-        siteList.push({Name:feature.properties.Name, Location: feature.properties.Location, Date: feature.properties.Date, Year_Desig: feature.properties.Year_Desig, webpage: feature.properties.WEB, Lat: feature.properties.Lat, Long: feature.properties.Long})
+        content = feature.properties.No + ". " + feature.properties.Name;
+        siteList.push({No: feature.properties.No, Name:feature.properties.Name, Location: feature.properties.Location, Date: feature.properties.Date, Year_Desig: feature.properties.Year_Desig, webpage: feature.properties.WEB, Lat: feature.properties.Lat, Long: feature.properties.Long, imgSrc: feature.properties.img_Src})
         
     // Create the "button".
+        
     a.innerHTML = content;
     a.layer = layer; // Store a reference to the actual layer.
-    a.onclick = function (event) {
+    a.onclick = function myFunction()
+        {
+            var siteNum = a.layer.feature.properties.No;
+            document.getElementById("cardText").innerHTML = siteList[siteNum-1].webpage;
+            document.getElementById("sitePic").src = siteList[siteNum-1].imgSrc;
+            var siteLoc = L.latLng(a.layer.feature.properties.Lat, a.layer.feature.properties.Long);
+            map.flyTo(siteLoc, 18);
+        }
+   
+        /*
+        a.onclick = function (event) {
         event.preventDefault(); // Prevent the link from scrolling the page.
-        
         //map.flyToBounds(feature.geometry.coordinates);
-        map.fitBounds(feature.geometry.coordinates, 16);
+        
+        var siteLoc = L.latLng(a.layer.feature.properties.Lat, a.layer.feature.properties.Long);
+        //map.setVeiw(siteLoc, 16);
         //console.log(feature.properties);
+        document.getElementByClassName("container").innerHTML = feature.properties.webpage;
         layer.openPopup();
     };
+    */
+        
     li.appendChild(a);
     list.appendChild(li);
     
     console.log(siteList);
-    layer.bindPopup("Name: " + content + "Lat:" + feature.properties.Lat + " Long: " + feature.properties.Long);
+    layer.bindPopup("Name: " + content + "Lat:" + feature.properties.Lat + " Long: " + feature.properties.Long + " Image Source: " + feature.properties.img_Src);
 }
 
 /*    
