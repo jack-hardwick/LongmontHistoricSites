@@ -13,6 +13,17 @@ html, body, #map
     height: 25px;
 }
 
+#tag
+{
+    position: fixed;
+    top: 0px;
+    right: 10px;
+}
+
+ul{
+    list-style-type: none;
+}
+
 .floater 
 {
   position: absolute;
@@ -65,8 +76,9 @@ button:hover
 
 .vertical-menu a.active {
     position: fixed;
-    top: 170px;
+    top: 115px;
     width: 350px;
+    height: 25px;
     background-color: #4CAF50;
     color: white;
 }
@@ -74,11 +86,11 @@ button:hover
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,1);
     transition: 0.3s;
-    width: 250px;
-    height: 250px;
+    width: 400px;
+    height: 300px;
     position: fixed;
-    right: 100px;
-    top: 100px;
+    right: 25px;
+    bottom: 100px;
     
 }
 
@@ -89,7 +101,7 @@ button:hover
 .container {
     padding: 2px 16px;
     width:400px;
-    height:400px;
+    height:50px;
     background-color: white;
     color: black;
     position: fixed;
