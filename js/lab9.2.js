@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var list = document.getElementById("list");
     var siteList = [];
     
-    L.esri.featureLayer({
+    var sites = L.esri.featureLayer({
         url: 'https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/latlongsites/FeatureServer/0',
         
         
@@ -62,8 +62,8 @@ document.addEventListener('DOMContentLoaded', function() {
             .setContent(a.layer.feature.properties.Name)
             .openOn(map);
         }
-   
-        /*
+    
+      /*
         a.onclick = function (event) {
         event.preventDefault(); // Prevent the link from scrolling the page.
         //map.flyToBounds(feature.geometry.coordinates);
@@ -84,58 +84,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
 }
 
-/*    
-function allProps(props) {
-    var result = [];
-
-    for (var prop in props) {
-        result.push(props[prop]);
-    }
-
-    return result.join();
-}
-*/    
-    
-    /*
-    //http://jsfiddle.net/ve2huzxw/47/
-    
-    historicSite.eachFeature(function(layer){
-        var content = "<button>" + layer.feature.properties.NAME + "</button>";
-        document.getElementById("buttonContainer").appendChild(content);
-    });
-*/
-
-    /*
-    document.getElementById("First").onclick = function()
-    {
-        map.setView([40.1386, -105.12793], 16);
-    };
-
-    document.getElementById("Second").onclick = function()
-    {
-        map.setView([40.1386, -105.12793], 16);
-    };
-
-    document.getElementById("Third").onclick = function()
-    {
-        map.setView([40.1386, -105.12793], 16);
-    };
-
-    document.getElementById("Fourth").onclick = function()
-    {
-        map.setView([40.1544, -105.127809047], 16);
-    };
-
-
-    document.getElementByClass("siteButton").onclick = function()
-    {
-        //map.setView(feature.getLatLng());
-        console.log("Clicked Button");
-    }
-
-    //use flyTo() instead.
-    
-    */
     function onMapClick(e) 
     {
         var popup = L.popup()
@@ -144,6 +92,22 @@ function allProps(props) {
         .openOn(map);
     }
     map.on('click', onMapClick);
+    
+    sites.onclick = function clickedFeature()
+    {
+            var siteNum = sites.properties.No;
+            document.getElementById("cardText").href = sites.properties.WEB;
+            document.getElementById("cardText").innerHTML = sites.properties.WEB;
+            if(sites.properties.img_Src == "")
+                {
+                   document.getElementById("sitePic").alt = "No Picture Available!"; 
+                }
+            else{
+                document.getElementById("sitePic").src =sites.properties.img_Src;
+                document.getElementById("sitePic").alt = sites.properties.Name;
+            } 
+            
+    }
 
 
 
