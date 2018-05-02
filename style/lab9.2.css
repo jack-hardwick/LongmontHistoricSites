@@ -13,16 +13,31 @@ html, body, #map
     height: 25px;
 }
 
-#tag
+#tags
 {
-    position: fixed;
     top: 0px;
     right: 10px;
+    display: inline;
+    font-size: 20px;
+    text-align: right;
+}
+li{
+    display: inline;
+}
+
+#link
+{
+    text-align: right;
+    right: 10px;
+    display: inline;
+    font-size: 15px;
+    
 }
 
 ul{
     list-style-type: none;
 }
+
 
 .floater 
 {
