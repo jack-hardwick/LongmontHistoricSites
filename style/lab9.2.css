@@ -1,25 +1,43 @@
 
 html, body, #map 
 {
-        height: 97%;
+        height: 100%;
         margin: 0;
         padding: 0;
         background-color:darkgreen;
 }
 
+#header
+{
+    display: inline;
+}
 #title
 {
   color: white;  
-    height: 25px;
+  height: 25px;
+  width: 1000px;
+  top: 10px;
+  background: green;
+  margin: 10px;
+  padding: 20px;
 }
 
+#longImg
+{
+    top: 0px;
+    width: 100px;
+    height: 100px;
+
+}
 #tags
 {
     top: 0px;
     right: 10px;
     display: inline;
     font-size: 20px;
-    text-align: right;
+    float: right;
+    color: white;
+    background: green;
 }
 li{
     display: inline;
@@ -30,7 +48,10 @@ li{
     text-align: right;
     right: 10px;
     display: inline;
-    font-size: 15px;
+    font-size: 20px;
+    float: right;
+    background: green;
+    color: white;
     
 }
 

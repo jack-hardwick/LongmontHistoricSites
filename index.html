@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="style/lab9.2.css" />
         <script src="js/lab9.2.js"><</script>
             <!--Get leaflet-->
-            
+
             <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
 
                 <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
@@ -23,25 +23,27 @@
             crossorigin=""></script>                 
 
             <title>Longmont Historic Landmarks</title>
-            
+
             </head>
             <body>
-                <ul> <!--Create Header-->
-                <li> <h1 id="title" style= "display: inline" >Longmont Historic Landmarks</h1><li>
-            <li> <h2 id="tags" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Created by Jack Hardwick </h2><li>
-            <li> <a id="link" href = "https://www.longmontcolorado.gov/community/about-longmont/longmont-s-history">&nbsp;&nbsp;&nbsp;&nbsp; Longmont Historic Landmarks Webpage </a><li>
+            
+            <div id ="header" class = "floater"><ul> <!--Create Header-->
+            <li> <img id = "longImg" src="https://pbs.twimg.com/profile_images/458711916760678400/d-6BdYkx_400x400.png" style = "float: left"></img> 
+            <li> <h1 id="title" style= "display: inline" >Longmont Historic Landmarks</h1><li>
+            <li> <span id="tags" > Created by Jack Hardwick </span><li>
+            <li> <a id="link" href = "https://www.longmontcolorado.gov/community/about-longmont/longmont-s-history">Longmont Historic Landmarks Webpage </a><li>
             </ul>
-
+            </div>
 
             <div id="map">
                 <!--Create Map and Buttons!-->
-                <div id="buttonContainer" class="floater">
-                    <div id="container" class="vertical-menu">
-                        <a href="#" class="active"><center>Site List</center></a>
-                            <ul id="list"></ul> 
+            <div id="buttonContainer" class="floater">
+                <div id="container" class="vertical-menu">
+                    <a href="#" class="active"><center>Site List</center></a>
+                        <ul id="list"></ul> 
             </div>      
             </div>
-                <!--Create floating site card-->
+            <!--Create floating site card-->
             <div class="floater">                            
                 <div class="card">
                     <img src="" id="sitePic" alt="" style="width:100%">

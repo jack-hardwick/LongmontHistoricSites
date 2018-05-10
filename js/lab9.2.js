@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var siteNum = a.layer.feature.properties.No;
             document.getElementById("cardText").href = a.layer.feature.properties.WEB;
             document.getElementById("cardText").innerHTML = a.layer.feature.properties.WEB;
+            console.log("Clicked " + a.layer.feature.properties.Name);
             //A number of the sites do not have images currently available. This just makes the alt text that shows up in the empty box a littl more relavent. 
             if(a.layer.feature.properties.img_Src == "No Picture Available!")
             {
@@ -54,6 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
             } 
             var siteLoc = L.latLng(a.layer.feature.properties.Lat, a.layer.feature.properties.Long);
             map.flyTo(siteLoc, 18);
+            
+            
             
             //The popup doesn't want to work for whatever reason... Should open a popup on button click. Tried multiple permutations. Probably a dumb mistake somewhere. Now even having this code uncommented
             //will lead to a critical error resulting in nothing displaying on the map at all. Apparently there is an unexpected token??
